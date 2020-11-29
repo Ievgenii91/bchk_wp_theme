@@ -294,7 +294,7 @@
             }
     
             ?>
-            <div class="entry-header <?php if( is_single () ) { echo 'blog'; } if(is_checkout()) { echo 'checkout'; } ?>">
+            <div class="entry-header <?php if( is_single () ) { echo 'blog'; } if(is_checkout() || is_cart()) { echo 'checkout'; } ?>">
                 <?php                
                 the_title( '<h1 class="entry-title">', '</h1>' );                
                 ?>

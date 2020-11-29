@@ -6,7 +6,7 @@ Description:    Дочерняя тема для темы StoreFront
 Author:         Ievgenii Butyrin
 Author URI:     https://dobrabochka.in.ua/about/
 Template:       storefront
-Version:        0.1.0
+Version:        0.1.1
 */
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap");
 input:focus, input:active, a:active, a:focus {
@@ -583,6 +583,7 @@ checkout page title
   color: #222;
   padding-top: 50px;
   padding-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .checkout-page-title {
@@ -830,6 +831,7 @@ form.checkout.woocommerce-checkout {
   border: 0px solid #e97d1f;
 }
 
+.button.product_type_simple.add_to_cart_button.ajax_add_to_cart,
 button.button, .cart-btn-below-img .woo-buttons a {
   color: #fff;
   background-color: #e97d1f;
