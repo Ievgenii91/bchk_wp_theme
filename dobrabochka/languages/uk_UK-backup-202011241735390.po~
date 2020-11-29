@@ -1,0 +1,54 @@
+# Translation of Themes - Storefront in Ukrainian
+# This file is distributed under the same license as the Themes - Storefront package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-11-24 17:35+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % "
+"10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Language: uk_UK\n"
+"Project-Id-Version: Themes - Storefront\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-22 09:46+0000\n"
+"Last-Translator: \n"
+"Language-Team: Ukrainian (UK)\n"
+"X-Loco-Version: 2.4.6; wp-5.5.3"
+
+#: functions.php:291
+msgid "Blog"
+msgstr "Блог"
+
+#. Name of the theme
+msgid "DobraBochka"
+msgstr "DobraBochka"
+
+#. URI of the theme
+msgid "https://dobrabochka.in.ua"
+msgstr "https://dobrabochka.in.ua"
+
+#. Author URI of the theme
+msgid "https://dobrabochka.in.ua/about/"
+msgstr "https://dobrabochka.in.ua/about/"
+
+#. Author of the theme
+msgid "Ievgenii Butyrin"
+msgstr "Євгеній Бутирін"
+
+#: functions.php:10
+msgid "Please complete requied fields"
+msgstr "Заповніть обов'язкові поля"
+
+#: functions.php:9
+msgid "Question has been sent"
+msgstr "Повідомлення успішно відправлено"
+
+#: functions.php:11
+msgid "Something went wrong"
+msgstr "Щось пішло не так"
+
+#. Description of the theme
+msgid "Дочерняя тема для темы StoreFront"
+msgstr ""
