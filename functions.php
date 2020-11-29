@@ -214,15 +214,15 @@
             ?>            
                 <div class="checkout-page-title"><nav class="checkout-breadcrumbs">
                     <a href="<?php echo get_site_url(null, 'cart'); ?>" class="current step-cart current">
-                    <span class="checkout-name"><?php echo _e( 'My cart', 'storefront' ); ?></span>
+                    <span class="checkout-name"><?php echo _e( 'My cart', 'parent-theme-slug' ); ?></span>
                     <span class="checkout-step"><span class="checkout-counter">1</span><span class="checkout-line"></span></span>
                     </a>
                     <a href="<?php echo get_site_url(null, 'checkout'); ?>" class="current step-checkout hide-for-small">
-                    <span class="checkout-name"><?php echo _e( 'Order details', 'storefront' ); ?></span>
+                    <span class="checkout-name"><?php echo _e( 'Order details', 'parent-theme-slug' ); ?></span>
                     <span class="checkout-step"><span class="checkout-counter">2</span><span class="checkout-line"></span></span>
                     </a>
                     <a href="#" class="current no-click step-complete hide-for-small current">
-                    <span class="checkout-name"><?php echo _e( 'Order received', 'storefront' ); ?></span>
+                    <span class="checkout-name"><?php echo _e( 'Order received', 'parent-theme-slug' ); ?></span>
                     <span class="checkout-step"><span class="checkout-counter">3</span><span class="checkout-line"></span></span>
                     </a></nav>
                 </div>
@@ -236,15 +236,15 @@
             ?>            
                 <div class="checkout-page-title"><nav class="checkout-breadcrumbs">
                     <a href="<?php echo get_site_url(null, 'cart'); ?>" class="current step-cart current">
-                    <span class="checkout-name"><?php echo _e( 'My cart', 'storefront' ); ?></span>
+                    <span class="checkout-name"><?php echo _e( 'My cart', 'parent-theme-slug' ); ?></span>
                     <span class="checkout-step"><span class="checkout-counter">1</span><span class="checkout-line"></span></span>
                     </a>
                     <a href="<?php echo get_site_url(null, 'checkout'); ?>" class="current step-checkout hide-for-small">
-                    <span class="checkout-name"><?php echo _e( 'Order details', 'storefront' ); ?></span>
+                    <span class="checkout-name"><?php echo _e( 'Order details', 'parent-theme-slug' ); ?></span>
                     <span class="checkout-step"><span class="checkout-counter">2</span><span class="checkout-line"></span></span>
                     </a>
                     <a href="#" class="no-click step-complete hide-for-small">
-                    <span class="checkout-name"><?php echo _e( 'Order received', 'storefront' ); ?></span>
+                    <span class="checkout-name"><?php echo _e( 'Order received', 'parent-theme-slug' ); ?></span>
                     <span class="checkout-step"><span class="checkout-counter">3</span><span class="checkout-line"></span></span>
                     </a></nav>
                 </div>
@@ -258,15 +258,15 @@
             ?>            
                 <div class="checkout-page-title"><nav class="checkout-breadcrumbs">
                     <a href="<?php echo get_site_url(null, 'cart'); ?>" class="current step-cart current">
-                    <span class="checkout-name"><?php echo _e( 'My cart', 'storefront' ); ?></span>
+                    <span class="checkout-name"><?php echo _e( 'My cart', 'parent-theme-slug' ); ?></span>
                     <span class="checkout-step"><span class="checkout-counter">1</span><span class="checkout-line"></span></span>
                     </a>
                     <a href="<?php echo get_site_url(null, 'checkout'); ?>" class="step-checkout hide-for-small">
-                    <span class="checkout-name"><?php echo _e( 'Order details', 'storefront' ); ?></span>
+                    <span class="checkout-name"><?php echo _e( 'Order details', 'parent-theme-slug' ); ?></span>
                     <span class="checkout-step"><span class="checkout-counter">2</span><span class="checkout-line"></span></span>
                     </a>
                     <a href="#" class="no-click step-complete hide-for-small">
-                    <span class="checkout-name"><?php echo _e( 'Order received', 'storefront' ); ?></span>
+                    <span class="checkout-name"><?php echo _e( 'Order received', 'parent-theme-slug' ); ?></span>
                     <span class="checkout-step"><span class="checkout-counter">3</span><span class="checkout-line"></span></span>
                     </a></nav>
                 </div>
@@ -392,7 +392,7 @@
         function storefront_credit() {           
             ?>
             <div class="site-info">
-                <?php echo _e( 'Copyrights', 'storefront' ); ?>
+                <?php echo _e( 'Copyrights', 'parent-theme-slug' ); ?>
             </div>
             <div class="bottom-menu">
                 <?php 
