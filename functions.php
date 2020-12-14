@@ -459,3 +459,53 @@
             <?php
         }
     }    
+
+    if ( ! function_exists( 'storefront_handheld_footer_home_link' ) ) {  
+        function storefront_handheld_footer_home_link() {
+            echo '<a class="fas fa-home homepage-icon" href="' . esc_url( get_home_url() ) . '">' . esc_attr__( 'Homepage', 'storefront' ) . '</a>';
+        }
+    }
+
+    if ( ! function_exists( 'storefront_handheld_footer_bar' ) ) {       
+        function storefront_handheld_footer_bar() {
+            $links = array(
+                'home' => array(
+                    'priority' => 10,
+                    'callback' => 'storefront_handheld_footer_home_link',
+                ),
+                'search'     => array(
+                    'priority' => 20,
+                    'callback' => 'storefront_handheld_footer_bar_search',
+                ),
+                'cart'       => array(
+                    'priority' => 30,
+                    'callback' => 'storefront_handheld_footer_bar_cart_link',
+                ),
+            );
+    
+            if ( did_action( 'woocommerce_blocks_enqueue_cart_block_scripts_after' ) || did_action( 'woocommerce_blocks_enqueue_checkout_block_scripts_after' ) ) {
+                return;
+            }
+           
+            if ( wc_get_page_id( 'cart' ) === -1 ) {
+                unset( $links['cart'] );
+            }
+    
+            $links = apply_filters( 'storefront_handheld_footer_bar_links', $links );
+            ?>
+            <div class="storefront-handheld-footer-bar">
+                <ul class="columns-<?php echo count( $links ); ?>">
+                    <?php foreach ( $links as $key => $link ) : ?>
+                        <li class="<?php echo esc_attr( $key ); ?>">
+                            <?php
+                            if ( $link['callback'] ) {
+                                call_user_func( $link['callback'], $key, $link );
+                            }
+                            ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            <?php
+        }
+    }

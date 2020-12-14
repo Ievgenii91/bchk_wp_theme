@@ -5,11 +5,12 @@ Description:    Дочерняя тема для темы StoreFront
 Author:         Ievgenii Butyrin
 Author URI:     https://dobrabochka.in.ua/about/
 Template:       storefront
-Version:        0.1.1
+Version:        0.1.2
 */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
 
 $main:  #e97d1f;
+$main2:  #b37c57;
 $main-darker: #e46e13;
 $dark: #222;
 $white: #fff;
@@ -18,6 +19,9 @@ $breadcrumb-color: #bbb;
 $text-color:  #777;
 $white-grey: #f4f4f4;
 
+.aio-icon {
+    color: $main !important;
+}
 input:focus, input:active, a:active, a:focus {
     outline: none;
 }
@@ -41,12 +45,7 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: none;
     letter-spacing: 0.5px;
 }
-h1, h1 *, h1 a:hover, #page .entry-title {
-    font: normal bold 44px / 54px "Roboto Slab", Helvetica, Arial, Verdana, sans-serif;
-    color:  $dark;
-    text-transform: none;
-    letter-spacing: 0.5px;
-}
+
 body {
     font-family: "Open Sans", Helvetica, Arial, Verdana, sans-serif;
     color: $dark;
@@ -65,7 +64,7 @@ p {
     margin-bottom: 0;
 }
 .advantages-block {
-    border: 1px solid$main;
+    border: 1px solid $main;
 }
 .advantages-block.central {
     background-color: white;
@@ -92,11 +91,19 @@ p {
         color: white;
     }
 }
+.wc-block-grid__product-title, .woocommerce-loop-product__title {
+	font-size: 17px !important;
+	line-height: 22px !important;
+}
+.woocommerce-loop-product__title {
+	min-height: 65px !important;
+}
+.woocommerce-info, .woocommerce-noreviews, p.no-comments {
+	background: $main;
+}
 
-@media (min-width: 768px) {
-    #main .entry-content .wp-block-cover .wp-block-cover__inner-container {
-        // padding-top: 80px !important;
-        // padding-bottom: 60px !important;
+@media (min-width: 1200px) {
+    #main .entry-content .wp-block-cover .wp-block-cover__inner-container {        
         width: auto;
         max-width: calc(1400px - 70px - 70px);
 
@@ -104,13 +111,62 @@ p {
             font-size: 28px;
         }
     }
-    .header-space {
-        min-height: 100px;
-        height: 140px;
-    }
     .col-full, .pre-header .data {
         width: calc(1400px - 70px - 70px);
         max-width: calc(1400px - 70px - 70px);        
+    }  
+}
+@media only screen {
+    h1 {
+        font-size: xx-large !important;
+    }
+    h2, .product_title.entry-title {
+        font-size: x-large !important;
+        line-height: 32px !important;
+    }
+    h3 {
+        font-size: larger !important;
+    }
+    .info-list-heading {
+        line-height: 24px !important;
+        padding-bottom: 15px;
+    }
+    h4 {
+        font-size: large !important;
+    }
+    .site-footer .col-full {
+        padding-top: 20px;
+    }
+    .homepage-icon:before {
+        color: $dark;
+    }
+    .call-block p a {
+        font-size: 18px !important;
+    }
+}
+@media (min-width: 768px) {
+    h1, h1 *, h1 a:hover, #page .entry-title {
+        font: normal bold 44px / 54px "Roboto Slab", Helvetica, Arial, Verdana, sans-serif;
+        color:  $dark;
+        text-transform: none;
+        letter-spacing: 0.5px;
+    }
+
+    #main .entry-content .wp-block-cover .wp-block-cover__inner-container {
+        width: auto;
+        max-width: calc(90% - 70px - 70px);
+        h3 {
+            font-size: 28px;
+        }
+    }
+    .col-full, .pre-header .data {
+        width: calc(90% - 70px - 70px);
+        max-width: calc(90% - 70px - 70px);
+    }
+
+    .header-space {
+        min-height: 100px;
+        height: 140px;
     }
     .pre-header-content-block {
         display: flex;
@@ -1699,4 +1755,11 @@ svg:not(:root) {
     .lang-item {
         margin: 0;
     }
+}
+
+.shop-page .entry-header {
+    display: none !important;
+}
+.shop-page #content {
+    padding-top: 40px;
 }
