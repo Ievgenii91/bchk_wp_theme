@@ -57,9 +57,7 @@ a, a:hover {
 p {
     color: $text-color;
 }
-/* .site-header {
-    margin-bottom: 0;
-} */
+
 .home.blog .site-header, .home.page:not(.page-template-template-homepage) .site-header, .home.post-type-archive-product .site-header {
     margin-bottom: 0;
 }
@@ -102,18 +100,20 @@ p {
 	background: $main;
 }
 
-@media (min-width: 1200px) {
+$screen-size: 1268px;
+
+@media (min-width: 1268px) {
     #main .entry-content .wp-block-cover .wp-block-cover__inner-container {        
         width: auto;
-        max-width: calc(1400px - 70px - 70px);
+        max-width: $screen-size;
 
         h3 {
             font-size: 28px;
         }
     }
     .col-full, .pre-header .data {
-        width: calc(1400px - 70px - 70px);
-        max-width: calc(1400px - 70px - 70px);        
+        width: $screen-size;
+        max-width: $screen-size;
     }  
 }
 @media only screen {
@@ -144,24 +144,13 @@ p {
         font-size: 18px !important;
     }
 }
+
 @media (min-width: 768px) {
     h1, h1 *, h1 a:hover, #page .entry-title {
         font: normal bold 44px / 54px "Roboto Slab", Helvetica, Arial, Verdana, sans-serif;
         color:  $dark;
         text-transform: none;
         letter-spacing: 0.5px;
-    }
-
-    #main .entry-content .wp-block-cover .wp-block-cover__inner-container {
-        width: auto;
-        max-width: calc(90% - 70px - 70px);
-        h3 {
-            font-size: 28px;
-        }
-    }
-    .col-full, .pre-header .data {
-        width: calc(90% - 70px - 70px);
-        max-width: calc(90% - 70px - 70px);
     }
 
     .header-space {
@@ -553,6 +542,29 @@ p {
         &.checkout {
             margin-bottom: 0;
         }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1267px) {
+    #main .entry-content .wp-block-cover .wp-block-cover__inner-container {
+        width: auto;
+        max-width: 90%;
+        h3 {
+            font-size: 28px;
+        }
+    }
+    .col-full, .pre-header .data {
+        width: 90%;
+        max-width: 90%;
+    }
+    .primary-navigation .menu .menu-item {
+        margin: 0 10px;
+    }
+    .primary-navigation .menu .menu-item a {
+        font-size: 14px;
+    }
+    .pre-header a {
+        font-size: 14px !important;
     }
 }
 .storefront-sorting {
