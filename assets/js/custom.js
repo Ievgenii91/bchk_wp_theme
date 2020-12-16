@@ -98,6 +98,18 @@ if (
 
         formData['line_items'] = JSON.stringify(arr);
         formData['total'] = $('#wcus-order-total bdi').text();
+        
+        var getText = function(dom) {
+          if(!dom || !dom.length) {
+            return '';
+          }
+          return dom.text().trim().replace(/(\r\n|\n|\r|\t|\t\n|\n\t)/gm, "");
+        }
+        formData['np_state'] = getText($('#select2-wcus_np_billing_area-container'));
+        formData['np_city'] = getText($('#select2-wcus_np_billing_city-container'));
+        formData['np_warehouse'] = getText($('#select2-wcus_np_billing_warehouse-container'));
+        formData['np_custom'] = getText($('#wcus_np_billing_custom_address'));
+
       $.ajax({
         url: 'https://dobrabochka.herokuapp.com/api/onAddOrder',        
         data: formData,
