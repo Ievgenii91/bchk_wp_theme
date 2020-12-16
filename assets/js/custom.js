@@ -88,16 +88,16 @@ if (
         }
         //line_items [{quantity, name, price}]
         //total
-        formData['line_items'] = [];
-
+        let arr = [];
         $('.shop_table .cart_item').each(function(item) {
-          formData['line_items'].push({
-            name: $('.product-name', this).text(),
-            price: $('.product-total bdi', this).text()
+          arr.push({
+            name: $('.product-name', this).text().trim().replace(/(\r\n|\n|\r|\t|\t\n|\n\t)/gm, ""),
+            price: $('.product-total bdi', this).text().trim().replace(/(\r\n|\n|\r|\t|\t\n|\n\t)/gm, "")
           })          
         });
-        formData['total'] = $('#wcus-order-total bdi').text();
 
+        formData['line_items'] = JSON.stringify(arr);
+        formData['total'] = $('#wcus-order-total bdi').text();
       $.ajax({
         url: 'https://dobrabochka.herokuapp.com/api/onAddOrder',        
         data: formData,
