@@ -5,7 +5,7 @@ Description:    Дочерняя тема для темы StoreFront
 Author:         Ievgenii Butyrin
 Author URI:     https://dobrabochka.in.ua/about/
 Template:       storefront
-Version:        0.1.2
+Version:        0.1.3
 */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap');
 
@@ -99,7 +99,9 @@ p {
 .woocommerce-info, .woocommerce-noreviews, p.no-comments {
 	background: $main;
 }
-
+.block-col-wrap .wp-block-advgb-infobox.advgb-infobox-wrapper {
+    min-height: 390px;
+}
 $screen-size: 1268px;
 
 @media (min-width: 1268px) {
@@ -116,7 +118,7 @@ $screen-size: 1268px;
         max-width: $screen-size;
     }  
 }
-@media only screen {
+.mobile {
     h1 {
         font-size: xx-large !important;
     }
@@ -325,6 +327,7 @@ $screen-size: 1268px;
         font: 20px / 24px "Open Sans", Helvetica, Arial, Verdana, sans-serif;
         color: $dark;
         display: flex;
+        min-width: 128px;
         width: auto;
         float: none;
         .fa-shopping-cart {
@@ -421,7 +424,7 @@ $screen-size: 1268px;
                 outline: none !important;
                 margin: 0 17px;                
                 &:last-child {
-                    margin: 0;
+                    margin-right: 0;
                 }
                 a {
                     &::after {
@@ -569,6 +572,15 @@ $screen-size: 1268px;
 }
 .storefront-sorting {
     margin-top: 13px;
+}
+
+button.button, .cart-btn-below-img .woo-buttons a, .single_add_to_cart_button.button {
+    color: $white;
+    background-color: $main;
+    border-radius: 2px;
+    &:hover {
+        background-color: $main-darker;
+    }    
 }
 /* the 7 styles */
 
@@ -876,8 +888,10 @@ button.button, .cart-btn-below-img .woo-buttons a {
     color: $white;
     background-color: $main;
     background: $main;
-    background: -webkit-linear-gradient();
-    background: linear-gradient();
+    &:hover {
+        background-color: $main-darker;
+    }
+    border-radius: 2px;
 }
 .woo-buttons a {
     position: relative;
@@ -887,6 +901,19 @@ button.button, .cart-btn-below-img .woo-buttons a {
     font-size: 13px;
     line-height: 25px;
     color: $white;
+}
+ul.products li.product {
+    h2.woocommerce-loop-product__title {
+        font-family: "Open Sans", Verdana, sans-serif;
+        &:hover {
+            color: $main;
+            text-decoration: underline;
+        }
+    }
+    .woocommerce-Price-amount.amount {
+        font-weight: bold;
+        font-size: 20px;
+    }
 }
 .ul.products li.product h2, ul.products li.product h3, ul.products li.product .woocommerce-loop-product__title, ul.products li.product .wc-block-grid__product-title, ul.products li.product .wc-block-grid__product-title > a:not(.has-font-size), ul.products .wc-block-grid__product h2, ul.products .wc-block-grid__product h3, ul.products .wc-block-grid__product .woocommerce-loop-product__title, ul.products .wc-block-grid__product .wc-block-grid__product-title, ul.products .wc-block-grid__product .wc-block-grid__product-title > a:not(.has-font-size), .wc-block-grid__products li.product h2, .wc-block-grid__products li.product h3, .wc-block-grid__products li.product .woocommerce-loop-product__title, .wc-block-grid__products li.product .wc-block-grid__product-title, .wc-block-grid__products li.product .wc-block-grid__product-title > a:not(.has-font-size), .wc-block-grid__products .wc-block-grid__product h2, .wc-block-grid__products .wc-block-grid__product h3, .wc-block-grid__products .wc-block-grid__product .woocommerce-loop-product__title, .wc-block-grid__products .wc-block-grid__product .wc-block-grid__product-title, .wc-block-grid__products .wc-block-grid__product .wc-block-grid__product-title > a:not(.has-font-size) {
     font-size: 1.5em;
@@ -973,13 +1000,7 @@ input[type=text], input[type=tel], input[type=url], input[type=email], input[typ
     -webkit-appearance: none;
     outline: none;
 }
-button.button, .cart-btn-below-img .woo-buttons a {
-    color: $white;
-    background-color: $main;
-    background: $main;
-    background: -webkit-linear-gradient();
-    background: linear-gradient();
-}
+
 button.button, a.button, input[type="button"], input[type="reset"], .wpcf7-submit, .dt-btn-m, input.dt-btn-m[type="submit"], #main .gform_wrapper .gform_footer input.button, #main .gform_wrapper .gform_footer input[type="submit"], #main-slideshow .tp-button, .woocommerce-widget-layered-nav-dropdown__submit {
     font: normal bold 14px / 16px "Open Sans", Helvetica, Arial, Verdana, sans-serif;
     text-transform: none;
@@ -1547,7 +1568,8 @@ $footer-text-color: #96999c;
         text-transform: none;
     }
 
-    .summary.entry-summary .price .woocommerce-Price-amount.amount {
+    .summary.entry-summary .price .woocommerce-Price-amount.amount,
+    .summary.entry-summary .price del .woocommerce-Price-amount.amount {
         font: bold 24px / 34px "Roboto Slab", Helvetica, Arial, Verdana, sans-serif;
         color: $dark;
         padding-bottom: 12px;
@@ -1555,21 +1577,11 @@ $footer-text-color: #96999c;
         margin-bottom: 35px;
     }
     .summary.entry-summary .price del .woocommerce-Price-amount.amount {
-        font: normal 24px / 34px "Roboto Slab", Helvetica, Arial, Verdana, sans-serif;
-        color: $dark;
-        padding-bottom: 12px;
         border-bottom: none;
-        margin-bottom: 35px;
     }
     .woocommerce-product-details__short-description {
         margin-top: 40px;
-    }
-    .single_add_to_cart_button.button {
-        background-color: $main;
-        &:hover {
-            background-color: $main-darker;
-        }
-    }
+    }   
 }
 
 #main .woocommerce-tabs .panel {
@@ -1610,88 +1622,44 @@ $footer-text-color: #96999c;
     }
 }
 /*callback*/
-#vdz_cb_widget {
-    position: fixed;
-    right: 40px;
-    bottom: 40px;
-    width: 80px;
-    height: 80px;
-    line-height: 78px;
-    border-radius: 50%;
-    border: 2px solid rgba(32, 152, 209, 0.3);
-    background-color: rgba(32, 152, 209, 0.5);
-    text-align: center;
-    transition: all 0.8s linear;
-    opacity: 1;
-    z-index: 9999;
-}
-#vdz_cb_widget {
-    left: 40px !important;
-    left: initial;
-}
-#vdz_cb_widget:after {
-    background-color: rgba(32,152,209,0.3);
-    animation-name: manimate_after;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    opacity: 0;
-}
-#vdz_cb_widget:before {
-    top: -2px;
-    left: -2px;
-    border: 2px solid rgba(32,152,209,0.5);
-    animation-name: manimate_before;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    opacity: 0;
-}
-#vdz_cb_widget:hover {
-    animation-play-state: paused;
-}
-.vdz_cb_widget:hover {
-    border: 2px solid rgba(32, 152, 209, 0.5);
-    background-color: $white;
-}
-.vdz_cb_widget:hover svg {
-    fill: #0F9E5E;
-}
-.vdz_cb_widget span svg {
-    width: 40px;
-    height: 40px;
-    fill: white;
-}
-svg:not(:root) {
-    overflow: hidden;
-}
-#vdz_cb_widget:after, #vdz_cb_widget:before {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    display: block;
-    animation-duration: 4s;
-    content: '';
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    z-index: -1;
-    box-sizing: content-box !important;
-}
 .vdz_cb_widget {
     display: block;
     z-index: 9100;
     position: absolute;
     top: -2px;
     left: -2px;
-    bottom: 0px;
-    right: 0px;
+    bottom: 0;
+    right: 0;
     width: 100%;
     height: 100%;
     border: 2px solid transparent;
     border-radius: 50%;
-    box-sizing: content-box !important;
+    box-sizing: content-box !important
 }
+
+.vdz_cb_widget:hover {
+    border: 2px solid rgba(32,152,209,.5);
+    background-color: #fff
+}
+
+.vdz_cb_widget:hover span {
+    animation-name: manimate_i;
+    animation-delay: 0s;
+    animation-duration: .8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite
+}
+
+.vdz_cb_widget span svg {
+    width: 40px;
+    height: 40px;
+    fill: #fff
+}
+
+.vdz_cb_widget:hover svg {
+    fill: #0f9e5e
+}
+
 .vdz_cb_widget span {
     display: flex;
     width: 100%;
@@ -1699,15 +1667,152 @@ svg:not(:root) {
     line-height: 1;
     align-items: center;
     justify-content: center;
-    color: $white;
+    color: #fff;
     z-index: 9200;
-    transition: all 0.3s linear !important;
+    transition: all .3s linear !important;
     animation-name: manimate_i;
     animation-delay: 2s;
     animation-duration: 3s;
     animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    animation-iteration-count: infinite
 }
+
+@keyframes manimate_i {
+    0%,100%,50% {
+        -webkit-transform: rotate(0) scale(1) skew(1deg);
+        transform: rotate(0) scale(1) skew(1deg)
+    }
+
+    10%,30% {
+        -webkit-transform: rotate(-25deg) scale(1) skew(1deg);
+        transform: rotate(-25deg) scale(1) skew(1deg)
+    }
+
+    20%,40% {
+        -webkit-transform: rotate(25deg) scale(1) skew(1deg);
+        transform: rotate(25deg) scale(1) skew(1deg)
+    }
+}
+
+.vdz_cb_widget.vdz_cb_widget_btn:focus {
+    outline: none !important
+}
+
+.vdz_cb_widget:hover i {
+    cursor: pointer;
+    color: rgba(32,152,209,.9);
+    animation: manimate_i 1s infinite ease-in-out
+}
+
+#vdz_cb_widget {
+    position: fixed;
+    left: 40px;
+    bottom: 40px;
+    width: 80px;
+    height: 80px;
+    line-height: 78px;
+    border-radius: 50%;
+    border: 2px solid rgba(32,152,209,.3);
+    background-color: rgba(32,152,209,.5);
+    text-align: center;
+    transition: all .8s linear;
+    opacity: 1;
+    z-index: 9999
+}
+
+#vdz_cb_widget:after,#vdz_cb_widget:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    animation-duration: 4s;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: -1;
+    box-sizing: content-box !important
+}
+
+#vdz_cb_widget:after {
+    background-color: rgba(32,152,209,.3);
+    animation-name: manimate_after;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    opacity: 0
+}
+
+#vdz_cb_widget:before {
+    top: -2px;
+    left: -2px;
+    border: 2px solid rgba(32,152,209,.5);
+    animation-name: manimate_before;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    opacity: 0
+}
+
+#vdz_cb_widget:hover {
+    animation-play-state: paused
+}
+
+@keyframes manimate_after {
+    0% {
+        transform: scale(1);
+        opacity: 0
+    }
+
+    35% {
+        opacity: 1;
+        transform: scale(1.5)
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1)
+    }
+}
+
+@keyframes manimate_before {
+    0% {
+        transform: scale(1);
+        opacity: 0
+    }
+
+    35% {
+        transform: scale(1.5);
+        opacity: 1
+    }
+
+    100% {
+        transform: scale(2);
+        opacity: 0
+    }
+}
+
+@keyframes manimate {
+    0% {
+        transform: scale(1);
+        opacity: 0
+    }
+
+    30% {
+        border-width: 10px
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 1
+    }
+
+    100% {
+        transform: scale(2);
+        opacity: 0
+    }
+}
+
 .product-template-default, .archive.tax-product_cat   {
     .entry-header {
         display: none;
@@ -1774,4 +1879,53 @@ svg:not(:root) {
 }
 .shop-page #content {
     padding-top: 40px;
+}
+
+.callback-modal-bg, .callback-modal {
+    display: none;
+}
+.callback-modal i {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+.callback-modal-bg {
+    position: fixed;
+    background-color: #000;
+    opacity: 0.75;
+    width: 100%;
+    height: 100%;
+    z-index: 1200;
+}
+.callback-modal-content,
+.callback-modal-header {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    h3 {
+        margin-top: 40px;
+    }  
+}
+.callback-modal .input-wrap.btn {
+    text-align: center;
+    margin-top: 20px;
+}
+.input-wrap textarea {
+    resize: none;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+.callback-modal {
+    background: $white;
+    box-shadow: 1px 1px 8px rgb(146, 146, 146);
+    width: 50%;
+    left: 25%;
+    top: 25%;
+    min-height: 300px;
+    position: fixed;   
+    z-index: 1205;
+    border-radius: 3px;
 }

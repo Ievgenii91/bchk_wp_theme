@@ -1,7 +1,11 @@
 <?php    
     add_shortcode( 'teleform', 'teleform_func' );
-    function teleform_func() {
+    function teleform_func($atts) {
         $name = __('First name.', 'woocommerce');
+        $atts = shortcode_atts( array(
+            'submit'   => ''    
+        ), $atts );
+        $submit = $atts['submit'] != '' ? $atts['submit'] : __('Submit', 'woocommerce');
         $html = '
         <div class="contact-form">
         <iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe>
@@ -18,9 +22,9 @@
             <div class="input-wrap">
                 <textarea name="question" placeholder="'. __('Message', 'woocommerce') .'"></textarea>
             </div>
-            <div class="input-wrap textarea-wrap">
+            <div class="input-wrap textarea-wrap btn">
                 <button type="submit" class="action-button">
-                '. __('Submit', 'woocommerce') .'
+                '. $submit .'
                 </button>
             </div>
         </form>
@@ -58,10 +62,20 @@
         // wp_enqueue_script('fontawesome-brands',  get_stylesheet_directory_uri() . '/assets/js/brands.js');
         wp_enqueue_script('custom',  get_stylesheet_directory_uri() . '/assets/js/custom.js', array( 'jquery' ), '1.0', true);
     }
-    // add_action( 'storefront_before_site', 'add_callback', 1);
+    add_action( 'storefront_before_site', 'add_callback', 1);
     if ( ! function_exists( 'add_callback' ) ) {
         function add_callback() {
             ?>
+            <div class="callback-modal">
+                <i class="fas fa-times callback-modal-close"></i>
+                <div class="callback-modal-header">
+                    <h3> <?php  __('Callback?', 'parent-theme-slug') ?> </h3>                    
+                </div>
+                <div class="callback-modal-content">
+                    <?php echo do_shortcode( '[teleform submit="'. __('Call me', 'parent-theme-slug') .'"]' ); ?>
+                </div>
+            </div>
+            <div class="callback-modal-bg"></div>
 <div id="vdz_cb_widget">
 <a class="vdz_cb_widget vdz_cb_widget_btn" href="#vdz_cb" title="">
 <span class="vdz_cb_widget_icon" aria-hidden="true">
@@ -178,14 +192,7 @@
         }
     }
 
-    if ( ! function_exists( 'storefront_cart_link_fragment' ) ) {
-        /**
-         * Cart Fragments
-         * Ensure cart contents update when products are added to the cart via AJAX
-         *
-         * @param  array $fragments Fragments to refresh via AJAX.
-         * @return array            Fragments to refresh via AJAX
-         */
+    if ( ! function_exists( 'storefront_cart_link_fragment' ) ) {     
         function storefront_cart_link_fragment( $fragments ) {
             global $woocommerce;
     
@@ -357,13 +364,7 @@
         function storefront_post_content() {
             ?>
             <div class="entry-content">
-            <?php
-    
-            /**
-             * Functions hooked in to storefront_post_content_before action.
-             *
-             * @hooked storefront_post_thumbnail - 10
-             */
+            <?php          
             // do_action( 'storefront_post_content_before' );
     
             the_content(
