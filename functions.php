@@ -131,7 +131,8 @@
                         <a href="tel:+380684134135032">+38 (068) 413 50 32</a>&nbsp;
                         <i class="fas fa-phone-alt"></i>                            
                         <a href="tel:+380996476706">+38 (099) 647 67 06</a>                    
-                        <a class="fab fa-instagram" href="https://www.instagram.com/dobra.bochka/"></a>
+                        <a class="fab fa-instagram" href="https://www.instagram.com/dobra.bochka"></a>
+                        <a class="fab fa-facebook" href="https://www.facebook.com/dobra.bochka"></a>
                     </div>
                     <div class="pre-header-content-block">                    
             <?php

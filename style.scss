@@ -1564,7 +1564,7 @@ $footer-text-color: #96999c;
 /* PRODUCT */
 #main .product {
     .summary.entry-summary .product_title.entry-title {
-        font: normal bold 34px / 44px "Roboto Slab", Helvetica, Arial, Verdana, sans-serif;
+        font: normal bold 34px / 38px "Roboto Slab", Helvetica, Arial, Verdana, sans-serif;
         text-transform: none;
     }
 
@@ -1928,4 +1928,26 @@ $footer-text-color: #96999c;
     position: fixed;   
     z-index: 1205;
     border-radius: 3px;
+}
+
+/* COMMENTS */ 
+.star-rating span:before, .quantity .plus, .quantity .minus, p.stars a:hover:after, p.stars a:after, .star-rating span:before, #payment .payment_methods li input[type=radio]:first-child:checked+label:before,
+p.stars.selected a:not(.active):before,
+p.stars.selected a.active:before, p.stars:hover a:before, p.stars.selected a:not(.active):before, p.stars.selected a.active:before {
+    color: $main;
+}
+
+.single-product div.product .woocommerce-product-rating {
+    margin-top: 5px;
+}
+.woocommerce-tabs .panel h2:first-of-type {
+    font-size: 1.2em;
+}
+
+textarea:focus, textarea:active {
+    outline: 1px solid rgb(85, 85, 85);
+}
+.input-text:focus, input[type=email]:focus, input[type=number]:focus, input[type=password]:focus, input[type=search]:focus, input[type=tel]:focus, input[type=text]:focus, input[type=url]:focus, textarea:focus {
+    background-color: $white;
+    outline: 1px solid rgb(85, 85, 85);
 }

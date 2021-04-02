@@ -131,7 +131,18 @@ if (
       $('body').addClass('overflow-hidden');
       $('.callback-modal, .callback-modal-bg').fadeIn(300);
     });
-    $('.teleform').on('submit', function () {
+    function isFormDataValid() {
+        const exceptions = ['henry', 'заработок', 'http', 'viagra'];
+        return !Array.from(arguments).filter(v => exceptions.filter(data => (v?.toLowerCase().indexOf(data) > -1)).length > 0).length;
+    }
+    $('.teleform').on('submit', function (e) {      
+      let name = $(this).find('input[name=name]').val();
+      let phone = $(this).find('input[name=phone]').val();
+      let question = $(this).find('textarea[name=question]').val();
+      if(!isFormDataValid(name, phone, question)) {
+        e.preventDefault();
+        return;
+      }      
       $('<input />')
         .attr('type', 'hidden')
         .attr('name', 'url')
@@ -151,61 +162,3 @@ if (
     });
 
   });
-
-
- // var count = 0;
-    // $('.teleform .action-button').on('click', function(){
-    //   if(count) return;
-    //   count++;
-    //   var formData = $(this).closest('.teleform').serializeArray();
-    //   var phone = formData.find(v => v.name === 'phone');
-    //   if(!phone || !phone.value) {
-    //     var $el = $(this).find('.error-form')
-    //     $el.fadeIn(400);
-    //     var timer = setTimeout(function() {
-    //       $el.fadeOut(400);
-    //       clearTimeout(timer);
-    //     }, 5000);
-    //     return;
-    //   }
-    //   $(this).prop('disabled', true);
-    //   $.ajax({
-    //       url: 'https://dobrabochka.herokuapp.com/api/message',
-    //       data: formData,
-    //       type: "POST",
-    //       success: function( data ){
-    //         debugger;
-    //           count = 0;
-    //           if(!data.error){
-    //             var $el = $(this).find('.success-form')
-    //             $el.fadeIn(400);
-    //             var timer = setTimeout(function() {
-    //               $el.fadeOut(400);
-    //               clearTimeout(timer);
-    //             }, 5000);
-    //             setTimeout(() => {
-    //               $(this).prop('disabled', false);
-    //             }, 30000);
-    //           } else {
-    //             var $el = $(this).find('.error-form')
-    //             $el.fadeIn(400);
-    //             var timer = setTimeout(function() {
-    //               $el.fadeOut(400);
-    //               clearTimeout(timer);
-    //             }, 5000);
-    //           }
-    //       }
-    //   }).done(function() {
-    //     debugger;
-    //     alert( "success" );
-    //   })
-    //   .fail(function() {
-    //     debugger;
-    //     alert( "error" );
-    //   })
-    //   .always(function() {
-    //     debugger;
-    //     alert( "complete" );
-    //   });;
-    // })
-    
