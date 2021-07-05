@@ -103,6 +103,7 @@ p {
     min-height: 390px;
 }
 $screen-size: 1268px;
+$min-screen-size: 1024px;
 
 @media (min-width: 1268px) {
     #main .entry-content .wp-block-cover .wp-block-cover__inner-container {        
@@ -114,7 +115,7 @@ $screen-size: 1268px;
         }
     }
     .col-full, .pre-header .data {
-        width: $screen-size;
+        width: $min-screen-size;
         max-width: $screen-size;
     }  
 }
